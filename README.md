@@ -7,9 +7,10 @@ Built with clean design principles and smooth interactivity ✨
 
 ## 🛠️ Tech Stack
 - **HTML5**  
-- **CSS3** (Flexbox, Grid, Animations)  
-- **JavaScript (ES6)**  
-- **Git & GitHub**  
+- **CSS3** 
+-  **React JS**
+-  **Tailwind CSS**
+-  **Framer Motion**
 
 ---
 
@@ -22,18 +23,6 @@ Built with clean design principles and smooth interactivity ✨
 
 ---
 
-## 📁 Folder Structure
-```bash
-my-portfolio/
-│
-├── index.html
-├── style.css
-├── script.js
-└── assets/
-├── images/
-└── icons/
-```
----
 
 ## 🖥️ Preview
 A clean and elegant landing page that highlights projects and personal details — designed with a focus on simplicity and usability.  
