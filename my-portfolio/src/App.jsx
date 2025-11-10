@@ -9,16 +9,13 @@ export default function App() {
       <Navbar />
       <Home />
       <About />
+      <Skills />
+      <Projects />
       <Contact />
       <Experience />
       <Services />
-      <Portfolio />
       <Testimonials />
       <Footer />  
-      <CustomCursor />
-      <IntroAnimation />
-      <OverlayMenu />
-      <ParticleBackground />
     </div>
   )
 
