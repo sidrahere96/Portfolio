@@ -1,3 +1,4 @@
+import React from "react"
 import Navbar from "./components/Navbar";
 import About from "./section/About";
 import Home from "./section/Home";
