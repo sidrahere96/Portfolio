@@ -7,9 +7,10 @@ Built with clean design principles and smooth interactivity ✨
 
 ## 🛠️ Tech Stack
 - **HTML5**  
-- **CSS3** (Flexbox, Grid, Animations)  
-- **JavaScript (ES6)**  
-- **Git & GitHub**  
+- **CSS3** 
+-  **React JS**
+-  **Tailwind CSS**
+-  **Framer Motion**
 
 ---
 
