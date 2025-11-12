@@ -7,7 +7,7 @@ import Project from "./section/Project";
 import Contact from "./section/Contact";
 import Experience from "./section/Experience";
 import Testimonials from "./section/Testimonials";
-import Footer from "./components/Footer";
+import Footer from "./section/Footer";
 
 export default function App() {
   return(
@@ -16,7 +16,7 @@ export default function App() {
       <Home />
       <About />
       <Skills />
-      <Projects />
+      <Project />
       <Contact />
       <Experience />
       <Testimonials />
