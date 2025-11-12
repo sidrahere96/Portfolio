@@ -8,6 +8,7 @@ import Contact from "./section/Contact";
 import Experience from "./section/Experience";
 import Testimonials from "./section/Testimonials";
 import Footer from "./section/Footer";
+import ParticlesBackground from "./components/ParticlesBackground";
 
 export default function App() {
   return(
