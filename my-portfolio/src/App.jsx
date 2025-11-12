@@ -11,7 +11,7 @@ import Footer from "./section/Footer";
 
 export default function App() {
   return(
-    <div>
+    <div class="relative gradient-bg text-white">
       <Navbar />
       <Home />
       <About />
