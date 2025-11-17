@@ -11,8 +11,10 @@ import Footer from "./section/Footer";
 import ParticlesBackground from "./components/ParticlesBackground";
 
 export default function App() {
-  return(
-    <div class="relative gradient-bg text-white">
+  return (
+    <div className="relative gradient-bg text-white">
+      <ParticlesBackground />
+
       <Navbar />
       <Home />
       <About />
@@ -21,8 +23,7 @@ export default function App() {
       <Contact />
       <Experience />
       <Testimonials />
-      <Footer />  
+      <Footer />
     </div>
-  )
-
+  );
 }
