@@ -1,6 +1,8 @@
 import OverlayMenu from ".OverlayMenu";
 export default function Navbar(){
-  const
+  const () => {
+
+  }
 
 
   return (
@@ -10,5 +12,5 @@ export default function Navbar(){
   </Nav>
     <OverlayMenu />
     </>
-  )
+  );
 }
