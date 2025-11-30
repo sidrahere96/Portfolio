@@ -26,12 +26,12 @@ export default function Navbar(){
     </div>
 
   <div className="hidden lg:block">
-    <a href="contact" className="hg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white px-4 py-2 rounded-md font-medium hover:opacity-90 transition-opacity duration-300">
+    <a href="contact" className="bg-gradient-to-r from-orange-400 via-pink-500 to-blue-500 text-white px-4 py-2 rounded-full font-medium shadow-lg hover:opacity-90 transition-opacity duration-300">
       Reach out
-    </a>"
+    </a>
   </div>
   </nav>
-    <OverlayMenu />
+    <OverlayMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)}/>
     </>
   );
 }
