@@ -19,10 +19,17 @@ export default function Navbar(){
 
   </div>
    <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
-  <button onClick={() => setMenuOpen(true)} className="text-white text-3xl focus:outline-none">   
+  <button onClick={() => setMenuOpen(true)} className="text-white text-3xl focus:outline-none"
+    aria-label="open-Menu">   
     <FiMenu />
   </button>
     </div>
+
+  <div className="hidden lg:block">
+    <a href="contact" className="hg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white px-4 py-2 rounded-md font-medium hover:opacity-90 transition-opacity duration-300">
+      Reach out
+    </a>"
+  </div>
   </nav>
     <OverlayMenu />
     </>
