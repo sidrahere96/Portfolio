@@ -18,7 +18,7 @@ export default function Navbar(){
     Sidra</div>
 
   </div>
-  <div classname="block lg:absolute lg:left-1/2 lg:transform lg:transform-x-1/2">
+   <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
   <button onClick={() => setMenuOpen(true)} className="text-white text-3xl focus:outline-none">   
     <FiMenu />
   </button>
