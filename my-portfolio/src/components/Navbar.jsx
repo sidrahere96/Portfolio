@@ -4,6 +4,8 @@ import logo from "../assets/logo.png"
 import { FiMenu } from "react-icons/fi";
 
 export default function Navbar(){
+
+  
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
 
