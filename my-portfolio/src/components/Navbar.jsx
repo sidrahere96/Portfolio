@@ -1,16 +1,51 @@
 import OverlayMenu from "./OverlayMenu";
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import logo from "../assets/logo.png"
 import { FiMenu } from "react-icons/fi";
 
 export default function Navbar(){
 
-  
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [forceVisible, setForceVisible] = useState(false);
 
+  const lastScrollY = React.useRef(0);
+  const timerId= React.useRef(null);
 
+  useEffect(() => {
+    const homeSection= document.querySelector("#home");
+    const observer= new IntersectionObserver(
+      ([entry]) => {
+        if(!entry.isIntersecting){
+          setForceVisible(true);
+          setVisible(true);
+        } else {
+          setForceVisible(false);
+        }
+      },{ threshold: 0.1 }
+    )
+    if(homeSection) observer.observe(homeSection);
 
+    return () => {
+      if(homeSection) observer.unobserve(homeSection);
+    }
+  },[])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if(forceVisible){
+        setVisible(true);
+        return;
+      }
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < lastScrollY.current) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+  }
+})
   return (
     <>
   <nav className={`fixed top-0 left-0 w-full flex items-centre justify-between px-6 py-4 z-50 transition-transform duration-300 ${visible ? "translate-y-0" :"-translate-y-full"}`}>

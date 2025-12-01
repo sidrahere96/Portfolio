@@ -1,4 +1,4 @@
-import { motion,AnimatePresence } from "framer-motion";
+import {AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
 import React from "react";
 
