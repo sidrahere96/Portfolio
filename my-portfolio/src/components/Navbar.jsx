@@ -1,5 +1,5 @@
 import OverlayMenu from "./OverlayMenu";
-import React,{ useEffect, useState } from "react";
+import React,{ useEffect, useState, useRef } from "react";
 import logo from "../assets/logo.png"
 import { FiMenu } from "react-icons/fi";
 
@@ -10,8 +10,8 @@ export default function Navbar(){
   const [visible, setVisible] = useState(true);
   const [forceVisible, setForceVisible] = useState(false);
 
-  const lastScrollY = React.useRef(0);
-  const timerId= React.useRef(null);
+  const lastScrollY = useRef(0);
+  const timerId= useRef(null);
 
   useEffect(() => {
     const homeSection= document.querySelector("#home");
