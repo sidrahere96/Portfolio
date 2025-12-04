@@ -53,7 +53,12 @@ useEffect(() => {
     lastScrollY.current = currentScrollY;
   }
   window.addEventListener("scroll", handleScroll, {passive: true});
-  return () => window.removeEventListener("scroll", handleScroll);
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    if(timerId.current) {
+      clearTimeout(timerId.current);
+    }
+  }
 }, [forceVisible])
 
 
