@@ -43,12 +43,20 @@ useEffect(() => {
       setVisible(true);
     } else {
       setVisible(false);
+      if(timerId.current) {
+        clearTimeout(timerId.current);
+      }
+      timerId.current = setTimeout(() => {
+        setVisible(false);
+      }, 3000);
     }
     lastScrollY.current = currentScrollY;
   }
   window.addEventListener("scroll", handleScroll);
   return () => window.removeEventListener("scroll", handleScroll);
 }, [forceVisible])
+
+
   return (
     <>
   <nav className={`fixed top-0 left-0 w-full flex items-centre justify-between px-6 py-4 z-50 transition-transform duration-300 ${visible ? "translate-y-0" :"-translate-y-full"}`}>
