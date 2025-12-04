@@ -1,4 +1,5 @@
-import {AnimatePresence } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { AnimatePresence, motion } from "framer-motion";
 import { FiX } from "react-icons/fi";
 import React from "react";
 
@@ -11,7 +12,7 @@ export default function OverlayMenu({isOpen, onClose}){
       {isOpen &&(
         <motion.div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-70"
         initial ={{ clipPath: `circle(0% at ${origin})` }}
-        animate={{clipPath :`circle(150% at ${origin})` }}
+        animate={{ clipPath: `circle(150% at ${origin})` }}
         exit={{clipPath: `circle(0% at ${origin})` }}
         transition={{duration:0.7, ease:[0.4,0,0.2,1]}}
         >
