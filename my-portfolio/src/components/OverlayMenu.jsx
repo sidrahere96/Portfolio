@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 import { FiX } from "react-icons/fi";
 import React from "react";

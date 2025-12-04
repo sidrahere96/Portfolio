@@ -1,23 +1,26 @@
 import OverlayMenu from "./OverlayMenu";
 import React,{ useEffect, useState, useRef } from "react";
-import logo from "../assets/logo.png"
+import logo2 from "../assets/logo.png"
 import { FiMenu } from "react-icons/fi";
 
+
 export default function Navbar(){
-
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [forceVisible, setForceVisible] = useState(false);
 
   const lastScrollY = useRef(0);
-  const timerId= useRef(null);
+  const timerId = useRef(null);
 
   useEffect(() => {
     const homeSection= document.querySelector("#home");
     const observer= new IntersectionObserver(
       ([entry]) => {
         if(entry.isIntersecting){
+          if (timerId.current) {
+            clearTimeout(timerId.current);
+            timerId.current = null;
+          }
           setForceVisible(true);
           setVisible(true);
         } else {
@@ -32,59 +35,58 @@ export default function Navbar(){
     }
   },[])
 
-useEffect(() => {
-  const handleScroll = () => {
-    if(forceVisible){
-      setVisible(true);
-      return;
+  useEffect(() => {
+    const handleScroll = () => {
+      if(forceVisible){
+        setVisible(true);
+        lastScrollY.current = window.scrollY;
+        return;
+      }
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < lastScrollY.current) {
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        setVisible(false);
+        if(timerId.current) {
+          clearTimeout(timerId.current);
+        }
+        timerId.current = setTimeout(() => {
+          setVisible(false);
+          timerId.current = null;
+        }, 3000);
+      }
+      lastScrollY.current = currentScrollY;
     }
-    const currentScrollY = window.scrollY;
-    if (currentScrollY < lastScrollY.current) {
-      setVisible(true);
-    } else {
-      setVisible(false);
+    window.addEventListener("scroll", handleScroll, {passive: true});
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
       if(timerId.current) {
         clearTimeout(timerId.current);
       }
-      timerId.current = setTimeout(() => {
-        setVisible(false);
-      }, 3000);
     }
-    lastScrollY.current = currentScrollY;
-  }
-  window.addEventListener("scroll", handleScroll, {passive: true});
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-    if(timerId.current) {
-      clearTimeout(timerId.current);
-    }
-  }
-}, [forceVisible])
-
+  }, [forceVisible])
 
   return (
     <>
-  <nav className={`fixed top-0 left-0 w-full flex items-centre justify-between px-6 py-4 z-50 transition-transform duration-300 ${visible ? "translate-y-0" :"-translate-y-full"}`}>
-  <div className="flex item-centre space-x-2">
-  <img src={logo} alt="Logo" className="h-12 w-12"/>
-  <div className="text-2xl font-bold text-white hidden sm:block">
-    Sidra</div>
-
-  </div>
-   <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
-  <button onClick={() => setMenuOpen(true)} className="text-white text-3xl focus:outline-none"
-    aria-label="open-Menu">   
-    <FiMenu />
-  </button>
-    </div>
-
-  <div className="hidden lg:block">
-    <a href="contact" className="bg-gradient-to-r from-orange-400 via-pink-500 to-blue-500 text-white px-4 py-2 rounded-full font-medium shadow-lg hover:opacity-90 transition-opacity duration-300">
-      Reach out
-    </a>
-  </div>
-  </nav>
-    <OverlayMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)}/>
+      <nav className={`fixed top-0 left-0 w-full flex items-centre justify-between px-6 py-4 z-50 transition-transform duration-300 ${visible ? "translate-y-0" :"-translate-y-full"}`}>
+        <div className="flex item-centre space-x-2">
+          <img src={logo2} alt="Logo" className="h-12 w-12"/>
+          <div className="text-2xl font-bold text-white hidden sm:block">
+            Sidra
+          </div>
+        </div>
+        <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+          <button onClick={() => setMenuOpen(true)} className="text-white text-3xl focus:outline-none" aria-label="open-Menu">
+            <FiMenu />
+          </button>
+        </div>
+        <div className="hidden lg:block">
+          <a href="contact" className="bg-gradient-to-r from-orange-400 via-pink-500 to-blue-500 text-white px-4 py-2 rounded-full font-medium shadow-lg hover:opacity-90 transition-opacity duration-300">
+            Reach out
+          </a>
+        </div>
+      </nav>
+      <OverlayMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)}/>
     </>
   );
 }
