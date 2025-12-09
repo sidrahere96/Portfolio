@@ -14,7 +14,7 @@ export default function ParticlesBackground() {
     resizeCanvas();
 
     let particles = [];
-    const particleCount = 500;
+    const particleCount = 490;
 
     const mouse = { x: null, y: null };
 
