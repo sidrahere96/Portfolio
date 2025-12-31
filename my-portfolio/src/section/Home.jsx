@@ -31,6 +31,18 @@ export default function Home() {
       ></div>
 
     </div>
+
+    <div
+      className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-col-1 lg:grid-cols-2">
+    <div
+      className="flex flex-col justify-center h-full text-centre lg:text-left relative">
+    <div
+      className="w-full lg:pr-24 max-auto max-w-[48rem]">
+
+    </div>
+    </div>    
+    </div>
+
     </section>
   );
 }
