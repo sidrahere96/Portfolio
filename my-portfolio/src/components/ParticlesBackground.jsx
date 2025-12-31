@@ -14,7 +14,7 @@ export default function ParticlesBackground() {
     resizeCanvas();
 
     let particles = [];
-    const particleCount = 490;
+    const particleCount = 300;
 
     const mouse = { x: null, y: null };
 
@@ -27,7 +27,7 @@ export default function ParticlesBackground() {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 2 + 1;
+        this.radius = Math.random() * 2;
         this.speedX = (Math.random() - 0.5) * 0.5;
         this.speedY = (Math.random() - 0.5) * 0.5;
       }

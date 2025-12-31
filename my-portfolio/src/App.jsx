@@ -14,7 +14,7 @@ import ParticlesBackground from "./components/ParticlesBackground";
 export default function App() {
   return (
     <div className="relative gradient-bg text-white">
-      <ParticlesBackground />
+      {/* <ParticlesBackground /> */}
       <CustomCursor />
       <Navbar />
       <Home />
