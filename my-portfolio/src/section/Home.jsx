@@ -1,7 +1,19 @@
 import React from 'react'
 import ParticlesBackground from '../components/ParticlesBackground';
+import { motion } from 'framer-motion';
+import { useMemo } from 'react';
 
 export default function Home() {
+  const roles= useMemo(()=>[
+    "Full-Stack Developer",
+    "Problem Solver",
+    "Frontend Developer",
+    "Backend Developer",
+    "UI/UX Designer",
+    "Tech Enthusiast"
+  ],[]);
+
+
   return (
     <section id="home" className="w-full h-screen relative bg-black overflow-hidden ">
     <ParticlesBackground />
@@ -38,6 +50,9 @@ export default function Home() {
       className="flex flex-col justify-center h-full text-centre lg:text-left relative">
     <div
       className="w-full lg:pr-24 max-auto max-w-[48rem]">
+    <motion.div>
+
+    </motion.div>
 
     </div>
     </div>    
