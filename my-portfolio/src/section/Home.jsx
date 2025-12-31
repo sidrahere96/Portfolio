@@ -61,15 +61,15 @@ export default function Home() {
         max-w-[500px] max-h-[500px]
         rounded-full
         bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
-        opacity-20 sm:opacity-15 md:opacity-10
-        blur-[120px]
-        animate-pulse"
+        opacity-30 sm:opacity-20 md:opacity-10
+        blur-[120px] sm-blur-[150px] md:blur-[180px]
+        animate-pulse delay-1000"
       ></div>
 
     </div>
 
     <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
-    <div className="flex flex-col justify-center h-full text-center lg:text-left">
+    <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
     <div className="w-full lg:pr-24 mx-auto max-w-[48rem]">
     <motion.div
     className="mb-3 text-xl sm:text-2xl md:text-3xl llg:text-4xl font-semibold text-white tracking-wide min-h-[1.6em]"
@@ -78,6 +78,10 @@ export default function Home() {
     transition={{duration:0.6, ease:"easeOut"}}>
     <span>
       {roles[index].substring(0,subIndex)}
+    </span>
+    <span className="inline-block w-[2px] ml-1 bg-white animate-blink align-middle"
+    style={{height:"1em"}}>
+
     </span>
     </motion.div>
 
