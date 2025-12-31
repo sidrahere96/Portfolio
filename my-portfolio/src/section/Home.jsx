@@ -3,12 +3,12 @@ import ParticlesBackground from '../components/ParticlesBackground';
 
 export default function Home() {
   return (
-    <section id="home" className="w-full h-screen relative bg-black overflow-hidden flex items-center justify-center">
+    <section id="home" className="w-full h-screen relative bg-black overflow-hidden ">
     <ParticlesBackground />
-    <div classname="absolute inset-0">
+    <div className="absolute inset-0">
       <div 
-      classname="absolute -top-32 -left-32
-      w-[70vw] sm:w-[50vw] md:w-[40vw]
+      className="absolute -top-32 -left-32
+      w-[70vw] sm:w-[z-500vw] md:w-[40vw]
       h-[70vw] sm:h-[50vw] md:h-[40vw]
       max-w-[500px] max-h-[500px]
       rounded-full
