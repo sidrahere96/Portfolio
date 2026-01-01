@@ -67,8 +67,8 @@ export default function Home() {
       ></div>
 
     </div>
+    <div className="relative z-10 h-full w-full flex items-center justify-center px-4">
 
-    <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
     <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
     <div className="w-full lg:pr-24 mx-auto max-w-[48rem]">
     <motion.div
@@ -84,6 +84,15 @@ export default function Home() {
 
     </span>
     </motion.div>
+
+
+    <motion.h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text
+    bg-gradient-to-r from-[#1cd8d2] via-[#302b63] to-[#00bf8f] drop-shadow-lg">
+      HELLO I'M <br/>
+      <span className="text-white font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg-whitespace-nowrap">
+        Sidra Chaudhari
+      </span>
+    </motion.h1>
 
     </div>
     </div>    
