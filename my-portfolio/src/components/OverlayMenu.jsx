@@ -2,47 +2,76 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiX } from "react-icons/fi";
 import React from "react";
 
-export default function OverlayMenu({isOpen, onClose}){
-  const isMobile=typeof window !== "undefined" && window.innerWidth <= 1024;
-  const origin = isMobile ? "95% 8%" : "50% 8%";
-  
+const MENU_ITEMS = [
+  { label: "Home", id: "home" },
+  { label: "About", id: "about" },
+  { label: "Skills", id: "skills" },
+  { label: "Projects", id: "projects" },
+  { label: "Experience", id: "experience" },
+  { label: "Testimonials", id: "testimonials" },
+  { label: "Contact", id: "contact" },
+];
+
+export default function OverlayMenu({ isOpen, onClose }) {
+  // Check window width for origin point (SSR safe)
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth <= 1024);
+  }, []);
+
+  const origin = isMobile ? "90% 5%" : "50% 5%";
+
   return (
     <AnimatePresence>
-      {isOpen &&(
-        <motion.div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-70"
-        initial ={{ clipPath: `circle(0% at ${origin})` }}
-        animate={{ clipPath: `circle(150% at ${origin})` }}
-        exit={{clipPath: `circle(0% at ${origin})` }}
-        transition={{duration:0.7, ease:[0.4,0,0.2,1]}}
+      {isOpen && (
+        <motion.div
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/90 backdrop-blur-xl"
+          initial={{ clipPath: `circle(0% at ${origin})` }}
+          animate={{ clipPath: `circle(150% at ${origin})` }}
+          exit={{ clipPath: `circle(0% at ${origin})` }}
+          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
-          <button onClick={onClose} className="text-white text-3xl focus:outline-none absolute top-6 right-6"
-          aria-label="Close Menu">
-            <FiX />
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-8 right-8 text-white/70 hover:text-white transition-colors p-2"
+            aria-label="Close Menu"
+          >
+            <FiX size={32} />
           </button>
 
-          <ul className="space-y-8 text-center mt-20 text-2xl font-medium text-white">
-            {[
-              { label: "HOME", id: "home" },
-              { label: "ABOUT", id: "about" },
-              { label: "SKILLS", id: "skills" },
-              { label: "PROJECTS", id: "projects" },
-              { label: "EXPERIENCE", id: "experience" },
-              { label: "TESTIMONIALS", id: "testimonials" },
-              { label: "CONTACT", id: "contact" }
-            ].map((item, index) => (
-              <motion.li key={item.label}
-              initial={{opacity:0, y:20}}
-              animate={{opacity:1, y:0}}
-              transition={{ delay: 0.3 + index * 0.1 }}>
-                <a href={`#${item.id}`} 
-                onClick={onClose} 
-                className="text-4xl text-white font-semibold hover:text-blue-400 transition-color duration-300 underline">
-                  {item.label}
-                </a>
-              </motion.li>
-            ))}
-          </ul>
-
+          {/* Navigation Links */}
+          <nav>
+            <ul className="flex flex-col gap-6 text-center">
+              {MENU_ITEMS.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 0.2 + index * 0.08,
+                    duration: 0.5,
+                    ease: "easeOut",
+                  }}
+                >
+                  <a
+                    href={`#${item.id}`}
+                    onClick={onClose}
+                    className="group relative inline-block text-4xl md:text-6xl font-bold uppercase tracking-tighter text-white transition-all"
+                  >
+                    {/* Hover text effect */}
+                    <span className="relative z-10 group-hover:text-blue-400 transition-colors duration-300">
+                      {item.label}
+                    </span>
+                    
+                    {/* Underline decorative element */}
+                    <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-blue-400 transition-all duration-300 group-hover:w-full" />
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </nav>
         </motion.div>
       )}
     </AnimatePresence>
