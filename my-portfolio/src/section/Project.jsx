@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Code, Terminal, Cpu } from 'lucide-react'; // Optional lucide icons
 
 const About = () => {
   const skillCategories = [

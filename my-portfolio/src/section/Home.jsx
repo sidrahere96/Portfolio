@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import ParticlesBackground from '../components/ParticlesBackground';
 import { motion } from 'framer-motion';
-import { ChevronDown, Terminal, Shield } from 'lucide-react';
 
 export default function Home() {
   const roles = useMemo(() => [
@@ -53,7 +52,6 @@ export default function Home() {
             animate={{ opacity: 1, x: 0 }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 font-mono text-xs tracking-widest uppercase"
           >
-            <Shield size={14} className="animate-pulse" /> System Secure & Online
           </motion.div>
 
           <div className="space-y-2">
@@ -89,7 +87,6 @@ export default function Home() {
               View Projects
             </button>
             <button className="px-8 py-4 border border-white/10 text-white font-bold rounded-full hover:bg-white/5 transition-all flex items-center justify-center gap-2">
-              <Terminal size={18} /> Resume.exe
             </button>
           </motion.div>
         </div>
@@ -127,7 +124,6 @@ export default function Home() {
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-[10px] font-mono tracking-widest uppercase">Scroll</span>
-          <ChevronDown size={20} />
         </div>
       </motion.div>
     </section>

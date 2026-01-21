@@ -1,5 +1,4 @@
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react'; // Optional: install lucide-react or use your own icons
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

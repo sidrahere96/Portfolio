@@ -1,30 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, ShieldCheck, Database, Layout, Lock, Server } from 'lucide-react';
 
 const Skills = () => {
   const skillGroups = [
     {
       title: "Core Development",
-      icon: <Layout className="text-blue-400" />,
       skills: ["React / Next.js", "TypeScript", "Tailwind CSS", "Redux"],
       color: "from-blue-500/20 to-transparent"
     },
     {
       title: "Backend Architecture",
-      icon: <Server className="text-cyan-400" />,
       skills: ["Node.js", "Express", "Python", "GraphQL"],
       color: "from-cyan-500/20 to-transparent"
     },
     {
       title: "Cybersecurity",
-      icon: <ShieldCheck className="text-emerald-400" />,
       skills: ["OWASP Top 10", "Pen-Testing", "Network Security", "Auth0/JWT"],
       color: "from-emerald-500/20 to-transparent"
     },
     {
       title: "Databases & DevOps",
-      icon: <Database className="text-purple-400" />,
       skills: ["PostgreSQL", "MongoDB", "Docker", "AWS / Firebase"],
       color: "from-purple-500/20 to-transparent"
     }
@@ -102,10 +97,8 @@ const Skills = () => {
             <Lock size={14} /> SYSTEM_ENCRYPTED: TRUE
           </div>
           <div className="flex items-center gap-2 text-xs font-mono text-blue-400/70">
-            <Terminal size={14} /> SHELL: ZSH
           </div>
           <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
-            <Cpu size={14} /> OPTIMIZED_STACK: STABLE
           </div>
         </motion.div>
       </div>
