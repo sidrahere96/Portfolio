@@ -21,7 +21,7 @@ const App = () => {
       
       {/* Background & Effects - Fixed position so they don't scroll away */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <ParticlesBackground />
+        <ParticlesBackground/>
       </div>
       
       <CustomCursor />
